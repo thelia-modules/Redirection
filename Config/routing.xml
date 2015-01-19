@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes xmlns="http://symfony.com/schema/routing" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+  <!--
+
+    if a /admin/module/redirection/ route is provided, a "Configuration" button will be displayed
+    for the module in the module list. Clicking this button will invoke this route.
+
+    <route id="my_route_id" path="/admin/module/redirection">
+        <default key="_controller">Redirection\Full\Class\Name\Of\YourConfigurationController::methodName</default>
+    </route>
+
+    <route id="my_route_id" path="/admin/module/redirection/route-name">
+        <default key="_controller">Redirection\Full\Class\Name\Of\YourAdminController::methodName</default>
+    </route>
+
+    <route id="my_route_id" path="/my/route/name">
+        <default key="_controller">Redirection\Full\Class\Name\Of\YourOtherController::methodName</default>
+    </route>
+
+    ...add as many routes as required.
+
+    <route>
+    ...
+    </route>
+    -->
+  <route id="redirection.permanent_redirection.list" path="/admin/module/Redirection/permanent_redirection" methods="get">
+    <default key="_controller">Redirection:PermanentRedirection:default</default>
+  </route>
+  <route id="redirection.permanent_redirection.create" path="/admin/module/Redirection/permanent_redirection" methods="post">
+    <default key="_controller">Redirection:PermanentRedirection:create</default>
+  </route>
+  <route id="redirection.permanent_redirection.view" path="/admin/module/Redirection/permanent_redirection/edit" methods="get">
+    <default key="_controller">Redirection:PermanentRedirection:update</default>
+  </route>
+  <route id="redirection.permanent_redirection.edit" path="/admin/module/Redirection/permanent_redirection/edit" methods="post">
+    <default key="_controller">Redirection:PermanentRedirection:processUpdate</default>
+  </route>
+  <route id="redirection.permanent_redirection.delete" path="/admin/module/Redirection/permanent_redirection" methods="post">
+    <default key="_controller">Redirection:PermanentRedirection:delete</default>
+  </route>
+  <route id="redirection.permanent_redirection.update_position" path="/admin/module/Redirection/permanent_redirection/updatePosition" methods="get">
+    <default key="_controller">Redirection:PermanentRedirection:updatePosition</default>
+  </route>
+  <route id="redirection.permanent_redirection.toggle_visibility" path="/admin/module/Redirection/permanent_redirection/toggleVisibility" methods="get">
+    <default key="_controller">Redirection:PermanentRedirection:setToggleVisibility</default>
+  </route>
+  <route id="redirection.configuration.default" path="/admin/module/Redirection" methods="get">
+    <default key="_controller">Redirection:RedirectionConfig:default</default>
+  </route>
+  <route id="redirection.configuration.save" path="/admin/module/Redirection" methods="post">
+    <default key="_controller">Redirection:RedirectionConfig:save</default>
+  </route>
+</routes>

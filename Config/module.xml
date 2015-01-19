@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="http://thelia.net/schema/dic/module"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://thelia.net/schema/dic/module http://thelia.net/schema/dic/module/module-2_1.xsd">
+    <fullnamespace>Redirection\Redirection</fullnamespace>
+    <descriptive locale="en_US">
+        <title>301 Redirections</title>
+        <description>Allow you two write permanent redirections from the back-office</description>
+    </descriptive>
+    <descriptive locale="fr_FR">
+        <title>Redirections 301</title>
+        <description>Permet d'écrire des redirections permanentes à partir du back-office</description>
+    </descriptive>
+    <!-- <logo></logo> -->
+    <languages>
+        <language>en_US</language>
+        <language>fr_FR</language>
+    </languages>
+    <version>1.0</version>
+    <author>
+        <name>Benjamin Perche</name>
+        <email>bperche@openstudio.fr</email>
+    </author>
+    <type>classic</type>
+    <!--
+    module dependencies
+    <required>
+        <module version="&gt;=0.1">Front</module>
+        <module version="~1.0">HookCart</module>
+        <module version="&gt;0.2">HookSearch</module>
+    </required>
+    -->
+    <thelia>2.1.0</thelia>
+    <stability>other</stability>
+</module>

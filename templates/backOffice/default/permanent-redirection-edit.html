@@ -1,0 +1,145 @@
+{extends file="admin-layout.tpl"}
+{default_translation_domain domain='redirection.bo.default'}
+
+{block name="no-return-functions"}
+    {$admin_current_location = 'tools'}
+{/block}
+
+{block name="page-title"}{intl l='PermanentRedirection'}{/block}
+
+{block name="check-resource"}admin.module{/block}
+{block name="check-access"}update{/block}
+{block name="check-module"}Redirection{/block}
+
+{block name="main-content"}
+
+    {form name="permanent_redirection.update"}
+        <div id="wrapper" class="container">
+
+            {if $form_error}
+                <div class="alert alert-danger">{$form_error_message}</div>
+            {/if}
+
+            <div class="general-block-decorator">
+                <div class="title title-without-tabs">
+                    {intl l="PermanentRedirection edit" d="redirection.bo.default"}
+                </div>
+
+                <div class="form-container">
+                    <form method="POST" action="{$current_url}" {form_enctype form=$form} class="clearfix" >
+
+                        {include "includes/inner-form-toolbar.html"
+                        close_url = {url path="/admin/module/Redirection/permanent_redirection"}
+                        }
+
+                        {form_field form=$form field="id"}
+                        {assign "permanent_redirection_id" $value}
+                            <input type="hidden" name="{$name}" value="{$value}"/>
+                        {/form_field}
+                        {form_field form=$form field="locale"}
+                            <input type="hidden" name="{$name}" value="{$edit_language_locale}"/>
+                        {/form_field}
+                        {form_field form=$form field="success_url"}
+                            <input type="hidden" name="{$name}" value="{url path='/admin/module/Redirection'}/permanent_redirection"/>
+                        {/form_field}
+                        {form_hidden_fields form=$form}
+
+                        {loop name="permanent_redirection_update" type="permanent-redirection" backend_context="yes" id=$permanent_redirection_id lang=$edit_language_id}
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {form_field form=$form field="path"}
+                                        <div class="form-group">
+                                            <label class="control-label" for="{$label_attr.for}">
+                                                {$label}
+                                                {if $required}<span class="required">*</span>{/if}
+                                                <a href="#{$label_attr.for}"
+                                                   class="link tooltip-link"
+                                                   data-toggle="tooltip"
+                                                   data-original-title="{intl l="This can be a regular expression (example: %example)" example="'/foo/(\d+)'" d="permanentredirection.bo.default"}">
+                                                    ?
+                                                </a>
+                                            </label>
+
+                                            {form_error form=$form field="path"}{$message}{/form_error}
+                                            <div class="input-group">
+                                                <div class="input-group-addon">#</div>
+                                                <input class="form-control" name="{$name}" id="{$label_attr.for}" {form_field_attributes form=$form field="path"} placeholder="{intl l='The PermanentRedirection path'}" value="{$PATH}">
+                                                <div class="input-group-addon">#</div>
+                                            </div>
+                                        </div>
+                                    {/form_field}
+                                    {form_field form=$form field="destination"}
+                                        <div class="form-group">
+                                            <label class="control-label" for="{$label_attr.for}">
+                                                {$label}
+                                                {if $required}<span class="required">*</span>{/if}
+                                                <a href="#{$label_attr.for}"
+                                                   class="link tooltip-link"
+                                                   data-toggle="tooltip"
+                                                   data-original-title="{intl l="This can be a regular expression result (example: %example)" example="'/bar/\$1'" d="permanentredirection.bo.default"}">
+                                                    ?
+                                                </a>
+                                            </label>
+
+                                            {form_error form=$form field="destination"}{$message}{/form_error}
+
+                                            <input class="form-control" name="{$name}" id="{$label_attr.for}" {form_field_attributes form=$form field="destination"} placeholder="{intl l='The PermanentRedirection destination'}" value="{$DESTINATION}">
+                                        </div>
+                                    {/form_field}
+                                    {form_field form=$form field="title"}
+                                        <div class="form-group">
+                                            <label class="control-label" for="{$label_attr.for}">
+                                                {$label}
+                                                {if $required}<span class="required">*</span>{/if}
+                                            </label>
+
+                                            {form_error form=$form field="title"}{$message}{/form_error}
+
+                                                <input type="text" class="form-control" name="{$name}" id="{$label_attr.for}" value="{$TITLE}" {form_field_attributes form=$form field="title"} placeholder="{intl l='The PermanentRedirection title'}" />
+                                        </div>
+                                    {/form_field}
+                                    {form_field form=$form field="chapo"}
+                                        <div class="form-group">
+                                            <label class="control-label" for="{$label_attr.for}">
+                                                {$label}
+                                                {if $required}<span class="required">*</span>{/if}
+                                            </label>
+
+                                            {form_error form=$form field="chapo"}{$message}{/form_error}
+
+                                                <textarea class="form-control" name="{$name}" id="{$label_attr.for}" {form_field_attributes form=$form field="chapo"} placeholder="{intl l='The PermanentRedirection chapo'}">{$CHAPO}</textarea>
+                                        </div>
+                                    {/form_field}
+
+                                    {include "includes/inner-form-toolbar.html"
+                                        hide_flags = true
+                                        close_url = {url path="/admin/module/Redirection/permanent_redirection"}
+                                    }
+
+                                    <small>
+                                        {intl
+                                            l="PermanentRedirection created on %created_at. Last modification: %updated_at"
+                                            created_at={format_date date=$CREATE_DATE}
+                                            updated_at={format_date date=$UPDATE_DATE}
+                                            d="redirection.bo.default"
+                                        }
+                                    </small>
+                                </div>
+                            </div>
+                        {/loop}
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    {/form}
+{/block}
+
+{block name="javascript-initialization"}
+    <script>
+        $(function()
+        {
+            $(".tooltip-link").tooltip();
+        });
+    </script>
+{/block}

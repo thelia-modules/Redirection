@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://thelia.net/schema/dic/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://thelia.net/schema/dic/config http://thelia.net/schema/dic/config/thelia-1.0.xsd">
+  <forms>
+    <form name="permanent_redirection.create" class="Redirection\Form\PermanentRedirectionCreateForm"/>
+    <form name="permanent_redirection.update" class="Redirection\Form\PermanentRedirectionUpdateForm"/>
+    <form name="redirection.configuration" class="Redirection\Form\RedirectionConfigForm"/>
+  </forms>
+  <loops>
+    <loop name="permanent-redirection" class="Redirection\Loop\PermanentRedirection"/>
+  </loops>
+  <services>
+    <service id="action.redirection.permanent_redirection_table" class="Redirection\Action\PermanentRedirectionAction">
+      <tag name="kernel.event_subscriber"/>
+    </service>
+    <service id="redirection.form.type.permanent_redirection_id" class="Redirection\Form\Type\PermanentRedirectionIdType">
+      <argument id="thelia.translator" type="service"/>
+      <tag name="thelia.form.type"/>
+    </service>
+    <service id="redirection.listener.request_listener" class="Redirection\EventListener\RequestListener">
+      <tag name="kernel.event_subscriber"/>
+    </service>
+  </services>
+  <hooks>
+    <hook id="redirection.permanent_redirection.tools_hook" class="Redirection\Hook\ToolsMenuHook" scope="request">
+      <tag name="hook.event_listener" event="main.top-menu-tools" type="back" active="1" method="onMainTopMenuTools"/>
+    </hook>
+  </hooks>
+</config>
