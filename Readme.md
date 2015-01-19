@@ -1,7 +1,5 @@
 Redirection module for Thelia
 ===
-author: Benjamin Perche <bperche@openstudio.fr>
-
 This module is only compatible with Thelia 2.1
 
 1. Installation
