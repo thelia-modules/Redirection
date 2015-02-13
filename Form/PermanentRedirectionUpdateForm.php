@@ -20,7 +20,7 @@ class PermanentRedirectionUpdateForm extends BasePermanentRedirectionUpdateForm
             "id" => "id",
             "visible" => "visible",
             "position" => "position",
-            "path" => "The path to redirect",
+            "path" => "Path",
             "destination" => "Destination",
             "title" => "Title",
             "chapo" => "Chapo",

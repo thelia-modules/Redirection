@@ -5,7 +5,7 @@
     {$admin_current_location = 'tools'}
 {/block}
 
-{block name="page-title"}{intl l='PermanentRedirection'}{/block}
+{block name="page-title"}{intl l='PermanentRedirection' d='redirection.bo.default'}{/block}
 
 {block name="check-resource"}admin.module{/block}
 {block name="check-access"}update{/block}
@@ -63,7 +63,7 @@
                                             {form_error form=$form field="path"}{$message}{/form_error}
                                             <div class="input-group">
                                                 <div class="input-group-addon">#</div>
-                                                <input class="form-control" name="{$name}" id="{$label_attr.for}" {form_field_attributes form=$form field="path"} placeholder="{intl l='The PermanentRedirection path'}" value="{$PATH}">
+                                                <input class="form-control" name="{$name}" id="{$label_attr.for}" {form_field_attributes form=$form field="path"} placeholder="{intl l='The PermanentRedirection path' d='redirection.bo.default'}" value="{$PATH}">
                                                 <div class="input-group-addon">#</div>
                                             </div>
                                         </div>
@@ -83,7 +83,7 @@
 
                                             {form_error form=$form field="destination"}{$message}{/form_error}
 
-                                            <input class="form-control" name="{$name}" id="{$label_attr.for}" {form_field_attributes form=$form field="destination"} placeholder="{intl l='The PermanentRedirection destination'}" value="{$DESTINATION}">
+                                            <input class="form-control" name="{$name}" id="{$label_attr.for}" {form_field_attributes form=$form field="destination"} placeholder="{intl l='The PermanentRedirection destination' d='redirection.bo.default'}" value="{$DESTINATION}">
                                         </div>
                                     {/form_field}
                                     {form_field form=$form field="title"}
@@ -95,7 +95,7 @@
 
                                             {form_error form=$form field="title"}{$message}{/form_error}
 
-                                                <input type="text" class="form-control" name="{$name}" id="{$label_attr.for}" value="{$TITLE}" {form_field_attributes form=$form field="title"} placeholder="{intl l='The PermanentRedirection title'}" />
+                                                <input type="text" class="form-control" name="{$name}" id="{$label_attr.for}" value="{$TITLE}" {form_field_attributes form=$form field="title"} placeholder="{intl l='The PermanentRedirection title' d='redirection.bo.default'}" />
                                         </div>
                                     {/form_field}
                                     {form_field form=$form field="chapo"}
@@ -107,7 +107,7 @@
 
                                             {form_error form=$form field="chapo"}{$message}{/form_error}
 
-                                                <textarea class="form-control" name="{$name}" id="{$label_attr.for}" {form_field_attributes form=$form field="chapo"} placeholder="{intl l='The PermanentRedirection chapo'}">{$CHAPO}</textarea>
+                                                <textarea class="form-control" name="{$name}" id="{$label_attr.for}" {form_field_attributes form=$form field="chapo"} placeholder="{intl l='The PermanentRedirection chapo' d='redirection.bo.default'}">{$CHAPO}</textarea>
                                         </div>
                                     {/form_field}
 

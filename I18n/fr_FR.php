@@ -1,4 +1,11 @@
 <?php
+
 return array(
-    // 'an english string' => 'La traduction française de la chaine',
+    'Manage redirections' => 'Gérer les redirections',
+    'Sorry, an error occurred: %err' => 'Une erreur est survenue: %err',
+    "This redirection is active" => "Cette redirection est en ligne",
+    "Path" => "Chemin",
+    "Destination" => "Destination",
+    "Title" => "Titre",
+    "Chapo" => "Description courte",
 );
