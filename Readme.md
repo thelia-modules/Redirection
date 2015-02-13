@@ -1,12 +1,12 @@
 # Redirection module for Thelia
 
-This module add the possibility de create 301 redirections from the back office for Thelia 2.1
+This module add the possibility to create 301 redirections from the back office for Thelia 2.1
 
 ## Installation
 
 ### Manually
 
-* Copy the module into ```<thelia_root>/local/modules/``` directory and be sure that the name of the module is [Put your module name here. ex : TheliaSmarty].
+* Copy the module into ```<thelia_root>/local/modules/``` directory and be sure that the name of the module is Redirection.
 * Activate it in your thelia administration panel
 
 ### Composer
