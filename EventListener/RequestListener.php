@@ -23,7 +23,7 @@ use Thelia\Core\HttpFoundation\Request;
 /**
  * Class RequestListener
  * @package Redirection\EventListener
- * @author Benjamin Perche <bperche@openstudio.fr>
+ * @author Benjamin Perche <bperche@thelia.net>
  */
 class RequestListener implements EventSubscriberInterface
 {
